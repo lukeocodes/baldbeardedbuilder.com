@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { Markdown } from 'astro/components';
+
+import { getSanityContent } from 'utils:helpers';
+import allPosts from 'sanityQL:allPosts';
+import PageTopper from 'component:PageTopper';
+import TableOfContents from 'component:vue:TableOfContents';
+
+
+export async function getStaticPaths({rss}) {
+  const response = await getSanityContent({query: allPosts});
+  const allBlogPosts = response.allPost;
+
+  rss({
+    title: 'Building Better Builders > Bald Bearded Builder',
+    description: 'Home of the Bald. Bearded. Builder. community. Working to build better builders.',
+    customData: `<language>en-us</language>`,
+    items: allBlogPosts.map(item => ({
+      title: item.title,
+      description: item.excerpt,
+      link: `/blog/${item.slug.current}`,
+      pubDate: item.publishedAt,
+    })),
+  });
+  return allBlogPosts.map(post => ({params: { slug: post.slug.current }, props: {post}}));
+}
+
+const { post } = Astro.props;
+---
+
+<BaseLayout title={post.title} description={post.excerpt} permalink={Astro.request.canonicalURL} canonicalURL={Astro.request.canonicalURL.href}>
+    <article class="page">
+        <header>
+        <img src={post.coverImage.asset.url} alt={post.title}/>
+        </header>
+        <main>
+            <aside>
+                <!-- <TableOfContents
+                toc={toc}
+                levels={levels}
+                client:load
+                /> -->
+            </aside>
+            <section class="content">
+                <PageTopper title={post.title} />
+                <Markdown content={post.body}></Markdown>
+            </section>
+        </main>
+    </article>
+</BaseLayout>

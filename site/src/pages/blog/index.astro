@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import BlogCard from 'component:BlogCard';
+
+import { getSanityContent } from 'utils:helpers';
+import allPosts from 'sanityQL:allPosts';
+
+const response = await getSanityContent({query: allPosts});
+const posts = response.allPost;
+
+const title = 'All blog posts';
+const description = 'All blog posts written by Michael Jolley, the bald. bearded. builder.';
+const permalink = Astro.request.canonicalURL.href;
+
+---
+<BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
+  <article>
+    <div class="latest-posts">
+      <h1>Give me moar <span>Posts</span></h1>
+      <ul>
+        {posts.map((p) => 
+          <BlogCard post={p} />
+        )}
+      </ul>
+    </div>
+  </article>
+</BaseLayout>
+
+<style lang="scss">
+article {
+  .latest-posts {
+    @apply flex flex-col justify-center items-center;
+    @apply mx-auto;
+    @apply py-12 px-8;
+    @apply w-full;
+    @apply lg:max-w-4xl xl:max-w-6xl;
+    @apply text-base;
+
+    @apply text-darkPurple dark:text-white;
+
+    h1 {
+      @apply flex items-center;
+      @apply font-cairo font-bold uppercase;
+      @apply text-3xl md:text-4xl;
+      span {
+        @apply flex;
+        @apply ml-1;
+        @apply py-0 px-2;
+        @apply text-white dark:text-darkPurple;
+        @apply bg-blue-500 dark:bg-bbbblue;
+      }
+    }
+
+    ul {
+      @apply mt-16;
+      @apply grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8;
+      @apply list-none;
+
+      li {
+        @apply h-full;
+      }
+    }
+  }
+}
+
+body.dark {
+  article {
+    .latest-posts {
+      @apply text-white;
+      h1 {
+        span {
+          @apply text-darkPurple;
+          @apply bg-bbbblue;
+        }
+      }
+    }
+  }
+}
+</style>

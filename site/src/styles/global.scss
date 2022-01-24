@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#wrapper {
+  @apply h-full;
+}
+
+body {
+	@apply bg-white;
+	@apply text-darkPurple;
+
+  @apply bg-no-repeat bg-cover;
+  background-position: center 3rem;
+  background-image: url('/images/bg-light.svg');
+
+  .intro {
+    background-image: url('/images/intro-light.svg');
+  }
+  
+  .stripe {
+    @apply bg-stripeLight;
+  }
+
+  article.page {
+    header {
+      @apply w-full;
+      @apply lg:max-w-4xl xl:max-w-6xl;
+      @apply mx-auto;
+      @apply rounded-md;
+      @apply mb-8;
+
+      img {
+        @apply rounded-md;
+        @apply w-full;
+      }
+    }
+      
+    main {
+      @apply flex flex-row lg:gap-8;
+      @apply mb-12;
+      @apply px-5 sm:px-3 md:px-0;
+
+      @apply lg:max-w-4xl xl:max-w-6xl;
+      @apply md:mx-auto;
+      @apply items-start;
+
+      aside {
+        @apply flex-col;
+        @apply w-1/12;
+        @apply z-0;
+        @apply sticky;
+        top: 105px;
+        @apply flex;
+        @apply lg:w-1/5;
+
+        @apply text-darkPurple;
+      }
+
+      .content {
+        @apply max-w-xl;
+
+        @apply text-darkPurple dark:text-gray-100;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          @apply inline-block;
+          @apply font-raleway font-bold;
+          @apply py-1 px-3;
+          @apply text-white dark:text-darkPurple;
+          @apply bg-blue-500 dark:bg-bbbblue;
+          @apply my-8;
+        }
+
+        h1 {
+          @apply mt-0;
+        }
+        h2 {
+          @apply text-3xl;
+        }
+        h3 {
+          @apply text-2xl;
+        }
+        h4,
+        h5,
+        h6 {
+          @apply text-xl;
+        }
+
+        p {
+          @apply text-lg;
+          @apply py-3;
+        }
+
+        blockquote {
+          @apply bg-stripeLight dark:bg-stripeDark;
+          @apply text-darkPurple dark:text-gray-200;
+          @apply py-6 px-10 italic;
+          @apply font-raleway;
+          @apply text-sm;
+          @apply rounded-sm;
+        }
+
+        img {
+          @apply py-3;
+        }
+
+        a {
+          @apply text-blue-500 dark:text-bbbpink;
+        }
+
+        .nuxt-content-highlight {
+          @apply py-3;
+        }
+
+        ul {
+          @apply bg-stripeLight;
+          @apply my-3;
+
+          li {
+            @apply p-3;
+
+            &:not(:last-child) {
+              @apply border-b border-blue-100;
+            }
+
+            &:before {
+              content: '';
+              @apply inline-block;
+              @apply h-full w-5;
+              @apply p-2;
+              @apply mr-4;
+              @apply text-darkPurple;
+
+              background-position: center;
+              background-image: url('/images/check.svg');
+              @apply bg-no-repeat;
+            }
+          }
+        }
+
+        code {
+          @apply text-base italic;
+          @apply bg-stripeLight font-fira px-1 mx-1;
+        }
+
+        pre {
+          @apply rounded-md;
+          code {
+            @apply text-base not-italic;
+            @apply bg-transparent px-0 mx-0;
+          }
+        }
+      }
+    }
+  }
+
+  &.dark {
+    @apply bg-darkPurple text-gray-100;
+    background-image: url('/images/bg-dark.svg');
+
+    .stripe {
+      @apply bg-stripeDark;
+    }
+    
+    .intro {
+      background-image: url('/images/intro-dark.svg');
+    }
+    
+    article.page {
+      aside {
+        @apply text-gray-100;
+      }
+      main {
+
+        .content {
+          @apply text-gray-100;
+
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6 {
+            @apply text-darkPurple;
+            @apply bg-bbbblue;
+          }
+
+          blockquote {
+            @apply bg-stripeDark;
+            @apply text-gray-200;
+          }
+
+          a {
+            @apply text-bbbpink;
+          }
+        }
+      }
+    }
+  }
+}
+
+  
+#wrapper {
+  @apply flex flex-col;
+
+}
