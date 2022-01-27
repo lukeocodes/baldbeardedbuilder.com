@@ -8,7 +8,7 @@ const { video } = Astro.props;
 const videoTitle = video.title.replace(' | Extension Highlight', '');
 ---
 
-  <a href={video.url} title={videoTitle} target="_blank">
+  <a href={video.url} title={videoTitle} target="_blank" class="videoCard">
     <img src={video.coverImage.asset.url} title={videoTitle}/>
     <main>
       <h3>{ videoTitle }</h3>
@@ -47,6 +47,7 @@ a {
     @apply text-bbbpink font-bold;
     @apply p-5 mt-auto;
     @apply flex align-middle gap-1;
+    @apply text-xs;
   }
 
   &:hover {

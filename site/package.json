@@ -9,6 +9,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
+    "@astrojs/markdown-remark": "^0.6.0",
     "@astrojs/renderer-preact": "^0.4.0",
     "@astrojs/renderer-vue": "^0.3.0",
     "@sanity/client": "^2.23.2",
@@ -17,6 +18,9 @@
     "autoprefixer": "^10.4.2",
     "dotenv": "^14.2.0",
     "prismjs": "^1.26.0",
+    "remark-autolink-headings": "^7.0.1",
+    "remark-prism": "^1.3.6",
+    "remark-rehype": "^10.1.0",
     "sass": "^1.49.0",
     "tailwindcss": "^3.0.15"
   }

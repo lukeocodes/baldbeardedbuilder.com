@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageTopper from 'component:PageTopper';
+import TableOfContents from 'component:vue:TableOfContents';
+
+const title = 'Report Code of Conduct Breach';
+const description = 'Code of Conduct for the Bald Bearded Builder community.';
+const permalink = 'https://baldbeardedbuilder.com/code-of-conduct';
+
+const levels = [2]
+---
+
+<BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
+    <article class="page">
+        <header>
+        <img src="/images/hands.png" alt="Hands of various people joined"/>
+        </header>
+        <main>
+            <aside>
+           
+            </aside>
+            <section class="content">
+                <PageTopper title={title} />
+                <div>
+                    <p>
+                        We take breaches of our COC very seriously. If you have experienced
+                        or witnessed a breach by a memmber of our community, we're here for
+                        you.
+                    </p>
+
+                    <p>
+                        Please submit the form below with a description of the event(s).
+                        This information is confidential and is sent directly to Michael &
+                        our Community Manager to review as quickly as possible.
+                    </p>
+
+                    <form
+                        name="coc-report"
+                        method="post"
+                        action="/success/"
+                        data-netlify="true"
+                        data-netlify-honeypot="bot-field"
+                        @submit.prevent="handleSubmit"
+                    >
+                        <input type="hidden" name="form-name" value="coc-report" />
+                        <p hidden>
+                        <label> Don’t fill this out: <input name="bot-field" /> </label>
+                        </p>
+
+                        <p>
+                        <label for="description"
+                            >Description of Event(s)<span class="required"
+                            >* required</span
+                            ></label
+                        >
+                        <textarea
+                            id="description"
+                            v-model="formData.description"
+                            rows="6"
+                            name="description"
+                            required
+                            placeholder="Describe the event(s) that occurred. Be sure to include the name of the person who violated the code of conduct."
+                        ></textarea>
+                        </p>
+                        <p>
+                        If you would like someone to follow up with you, please complete
+                        the fields below.
+                        <strong>For your privacy, they are NOT required.</strong>
+                        </p>
+                        <p>
+                        <label for="name">Your Name</label>
+                        <input
+                            id="name"
+                            v-model="formData.name"
+                            type="text"
+                            name="name"
+                            placeholder="Enter your name here"
+                        />
+                        </p>
+                        <p>
+                        <label for="email">Your Email</label>
+                        <input
+                            id="email"
+                            v-model="formData.email"
+                            type="text"
+                            name="email"
+                            placeholder="Enter your email address here"
+                        />
+                        </p>
+                        <p>
+                        <button type="submit">Submit</button>
+                        </p>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </article>
+</BaseLayout>

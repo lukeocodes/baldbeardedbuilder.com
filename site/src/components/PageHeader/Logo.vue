@@ -11,9 +11,3 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.logo {
-  @apply text-gray-900 dark:text-white;
-  @apply text-4xl;
-}
-</style>

@@ -68,6 +68,23 @@ body {
 
         @apply text-darkPurple dark:text-gray-100;
 
+        .page-topper {
+          @apply pb-5;
+
+          h1 {
+            @apply font-raleway font-bold text-3xl md:text-4xl;
+            @apply mb-4;
+
+            background: linear-gradient(
+              90deg,
+              rgba(255, 0, 255, 1) 0%,
+              rgba(0, 255, 255, 1) 100%
+            );
+            -webkit-text-fill-color: transparent;
+            @apply bg-clip-text;
+          }
+        }
+
         h1,
         h2,
         h3,
@@ -105,7 +122,7 @@ body {
         blockquote {
           @apply bg-stripeLight dark:bg-stripeDark;
           @apply text-darkPurple dark:text-gray-200;
-          @apply py-6 px-10 italic;
+          @apply py-6 px-10 my-4 italic;
           @apply font-raleway;
           @apply text-sm;
           @apply rounded-sm;
@@ -117,6 +134,13 @@ body {
 
         a {
           @apply text-blue-500 dark:text-bbbpink;
+
+          @apply border-b-2 border-transparent;
+
+          &:hover {
+            border-image-slice: 1;
+            border-image-source: linear-gradient(to right, #ff00ff, #00ffff);
+          }
         }
 
         .nuxt-content-highlight {
@@ -203,6 +227,7 @@ body {
 
           a {
             @apply text-bbbpink;
+            
           }
         }
       }
@@ -213,5 +238,120 @@ body {
   
 #wrapper {
   @apply flex flex-col;
+
+}
+
+header {
+  @apply w-full;
+  @apply flex flex-col;
+
+  section {
+    @apply flex justify-between;
+    @apply my-6 mx-auto;
+    @apply px-4;
+    @apply w-full;
+    @apply lg:max-w-4xl xl:max-w-6xl;
+
+    @apply text-gray-900 dark:text-white;
+        
+    .end {
+      @apply flex flex-row items-center;
+      @apply justify-end;
+    }
+        
+    .logo {
+      @apply text-gray-900 dark:text-white;
+      @apply text-4xl;
+    }
+  }
+}
+
+footer {
+  @apply px-8 py-8;
+  @apply flex flex-row;
+  @apply sm:gap-16;
+  @apply md:px-16 md:pt-12;
+  @apply font-raleway;
+
+  section {
+    @apply mx-auto;
+    @apply w-full h-full;
+    @apply lg:max-w-4xl xl:max-w-6xl;
+    @apply flex flex-row items-center gap-20;
+    flex: 0 1 auto;
+
+    .logo {
+      @apply hidden;
+      @apply self-start;
+      @apply sm:flex;
+      @apply sm:w-64;
+      @apply text-4xl;
+      @apply text-darkPurple dark:text-gray-100;
+    }
+    nav {
+      @apply flex gap-8 justify-between flex-row flex-wrap;
+      @apply md:gap-20 md:justify-start;
+
+      ul {
+        @apply flex flex-col gap-4;
+
+        li {
+          @apply uppercase;
+
+          .svg-icon {
+            @apply mx-2;
+          }
+          
+          a {
+            @apply flex items-center;
+            @apply text-blue-500 dark:text-bbbpink;
+            @apply font-normal;
+
+            &:hover {
+              @apply text-darkPurple dark:text-gray-100;
+            }
+
+            &.github:hover span {
+              @apply text-red-500;
+            }
+            &.uses:hover span {
+              @apply text-purple-500;
+            }
+            &.patreon:hover span {
+              @apply text-brand-patreon;
+            }
+          }
+
+          &.socials {
+            @apply pt-8;
+
+            > ul {
+              @apply flex flex-row gap-3;
+              @apply text-lg;
+
+              .twitter:hover {
+                @apply text-brand-twitter;
+              }
+              .linkedin:hover {
+                @apply text-brand-linkedin;
+              }
+              .instagram:hover {
+                @apply text-brand-instagram;
+              }
+              .youtube:hover {
+                @apply text-brand-youtube;
+              }
+              .discord:hover {
+                @apply text-brand-discord;
+              }
+              .twitch:hover {
+                @apply text-brand-twitch;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 
 }

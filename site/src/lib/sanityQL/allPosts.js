@@ -3,6 +3,7 @@ export default allPosts = `{
     slug {
       current
     }
+    canonicalUrl
     title
   	publishedAt
     coverImage {

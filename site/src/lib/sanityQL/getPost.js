@@ -4,6 +4,7 @@ query PostQuery($slug: String!) {
     slug {
       current
     }
+    canonicalUrl
     title
   	publishedAt
     coverImage {

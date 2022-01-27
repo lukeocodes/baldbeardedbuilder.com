@@ -22,7 +22,7 @@
 
     li {
       @apply flex items-center;
-      @apply border-b-4 border-transparent;
+      @apply border-b-2 border-transparent;
 
       @apply font-raleway font-bold;
       @apply text-darkPurple dark:text-gray-100;

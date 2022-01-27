@@ -13,7 +13,17 @@ export default ({
 		'@astrojs/renderer-vue'
 	],
 	markdownOptions: {
-		render: ['@astrojs/markdown-remark']
+		render: [
+			'@astrojs/markdown-remark',
+			{
+				remarkPlugins: [
+					[
+						[import('remark-autolink-headings'), { behavior: 'prepend' }],
+						import('remark-rehype')
+					],
+				],
+			},
+		]
 	},
 	tailwindConfig: './tailwind.config.cjs'
 });

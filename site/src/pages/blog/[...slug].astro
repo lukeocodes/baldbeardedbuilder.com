@@ -5,6 +5,7 @@ import { Markdown } from 'astro/components';
 import { getSanityContent } from 'utils:helpers';
 import allPosts from 'sanityQL:allPosts';
 import PageTopper from 'component:PageTopper';
+import CanonicalNotice from 'component:vue:CanonicalNotice';
 import TableOfContents from 'component:vue:TableOfContents';
 
 
@@ -27,9 +28,10 @@ export async function getStaticPaths({rss}) {
 }
 
 const { post } = Astro.props;
+const canonicalURL = post.canonicalUrl || Astro.request.canonicalURL;
 ---
 
-<BaseLayout title={post.title} description={post.excerpt} permalink={Astro.request.canonicalURL} canonicalURL={Astro.request.canonicalURL.href}>
+<BaseLayout title={post.title} description={post.excerpt} permalink={Astro.request.canonicalURL} canonicalUrl={canonicalURL}>
     <article class="page">
         <header>
         <img src={post.coverImage.asset.url} alt={post.title}/>
@@ -44,6 +46,7 @@ const { post } = Astro.props;
             </aside>
             <section class="content">
                 <PageTopper title={post.title} />
+                <CanonicalNotice canonicalUrl={post.canonicalUrl} />
                 <Markdown content={post.body}></Markdown>
             </section>
         </main>
