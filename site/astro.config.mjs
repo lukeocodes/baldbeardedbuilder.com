@@ -15,14 +15,14 @@ export default ({
 	markdownOptions: {
 		render: [
 			'@astrojs/markdown-remark',
-			{
-				remarkPlugins: [
-					[
-						[import('remark-autolink-headings'), { behavior: 'prepend' }],
-						import('remark-rehype')
-					],
-				],
-			},
+			// {
+			// 	remarkPlugins: [
+			// 		[
+			// 			//[import('remark-autolink-headings'), { behavior: 'prepend' }],
+			// 			//import('remark-rehype')
+			// 		],
+			// 	],
+			// },
 		]
 	},
 	tailwindConfig: './tailwind.config.cjs'
