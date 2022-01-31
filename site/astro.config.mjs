@@ -7,6 +7,7 @@
 export default ({
 	buildOptions: {
 		sitemap: true,
+		site: 'https://baldbeardedbuilder.com'
 	},
 	renderers: [
 		'@astrojs/renderer-preact',
