@@ -1,6 +1,8 @@
 <template>
   <blockquote v-if="canonicalUrl">
-    This post originally appeared on <a :href="canonicalUrl" target="_blank">{{canonicalRoot}}</a>.
+    This post originally appeared on
+    <a :href="canonicalUrl" target="_blank">{{ canonicalRoot }}</a
+    >.
   </blockquote>
 </template>
 <script lang="ts">
@@ -8,14 +10,13 @@ export default {
   props: {
     canonicalUrl: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     canonicalRoot() {
-      return this.canonicalUrl ?
-        this.canonicalUrl.split('/')[2] : ''
-    }
-  }
-}
+      return this.canonicalUrl ? this.canonicalUrl.split("/")[2] : "";
+    },
+  },
+};
 </script>

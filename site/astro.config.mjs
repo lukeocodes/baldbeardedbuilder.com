@@ -7,6 +7,7 @@
 export default ({
 	buildOptions: {
 		sitemap: true,
+		site: 'https://baldbeardedbuilder.com'
 	},
 	renderers: [
 		'@astrojs/renderer-preact',
@@ -16,13 +17,13 @@ export default ({
 		render: [
 			'@astrojs/markdown-remark',
 			{
-				remarkPlugins: [
-					[
-						[import('remark-autolink-headings'), { behavior: 'prepend' }],
-						import('remark-prism'),
-						import('remark-rehype')
-					],
-				],
+				// remarkPlugins: [
+				// 	[
+				// 		[import('remark-autolink-headings'), { behavior: 'prepend' }],
+				// 		import('remark-prism'),
+				// 		import('remark-rehype')
+				// 	],
+				// ],
 			},
 		]
 	},

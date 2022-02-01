@@ -28,10 +28,10 @@ export async function getStaticPaths({rss}) {
 }
 
 const { post } = Astro.props;
-const canonicalURL = post.canonicalUrl || Astro.request.canonicalURL;
+const canonicalUrl = post.canonicalUrl || Astro.request.canonicalURL.href;
 ---
 
-<BaseLayout title={post.title} description={post.excerpt} permalink={Astro.request.canonicalURL} canonicalUrl={canonicalURL}>
+<BaseLayout title={post.title} description={post.excerpt} permalink={Astro.request.canonicalURL} canonicalUrl={canonicalUrl}>
     <article class="page">
         <header>
         <img src={post.coverImage.asset.url} alt={post.title}/>
