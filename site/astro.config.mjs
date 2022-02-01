@@ -19,6 +19,7 @@ export default ({
 				remarkPlugins: [
 					[
 						[import('remark-autolink-headings'), { behavior: 'prepend' }],
+						import('remark-prism'),
 						import('remark-rehype')
 					],
 				],
