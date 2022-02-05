@@ -16,15 +16,6 @@ export default ({
 	markdownOptions: {
 		render: [
 			'@astrojs/markdown-remark',
-			{
-				// remarkPlugins: [
-				// 	[
-				// 		[import('remark-autolink-headings'), { behavior: 'prepend' }],
-				// 		import('remark-prism'),
-				// 		import('remark-rehype')
-				// 	],
-				// ],
-			},
 		]
 	},
 	tailwindConfig: './tailwind.config.cjs'

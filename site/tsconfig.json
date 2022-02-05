@@ -25,7 +25,10 @@
         "src/lib/*.js"
       ],
       "sanityQL:*": [
-        "src/lib/sanityQL/*.js"
+        "src/build/sanity/sanityQL/*.js"
+      ],
+      "types:*": [
+        "src/types/*.ts"
       ]
     }
   }

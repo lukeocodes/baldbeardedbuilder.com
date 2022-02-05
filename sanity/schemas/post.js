@@ -45,6 +45,12 @@ export default {
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',
+      validation: Rule => Rule.max(200).warning('The excerpt shouln\'t be longer than 200 characters'),
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'text',
       validation: Rule => Rule.max(200).warning('The description shouln\'t be longer than 200 characters'),
     },
     {

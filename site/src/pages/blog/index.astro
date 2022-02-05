@@ -1,12 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
+import {BlogPostFrontmatter} from 'types:BlogPostFrontmatter';
 import BlogCard from 'component:BlogCard';
 
-import { getSanityContent } from 'utils:helpers';
-import allPosts from 'sanityQL:allPosts';
-
-const response = await getSanityContent({query: allPosts});
-const posts = response.allPost;
+const posts = Astro.fetchContent<BlogPostFrontmatter>('../posts/*.md');
 
 const title = 'All blog posts';
 const description = 'All blog posts written by Michael Jolley, the bald. bearded. builder.';

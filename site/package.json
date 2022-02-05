@@ -2,10 +2,12 @@
   "name": "@example/blog",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "npm run build:assets && astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build:assets": "node src/build/prebuild.js ",
+    "build": "npm run build:assets && astro build",
     "preview": "astro preview"
   },
   "devDependencies": {
@@ -16,7 +18,6 @@
     "@sanity/image-url": "^1.0.1",
     "astro": "^0.22.17",
     "autoprefixer": "^10.4.2",
-    "dotenv": "^14.2.0",
     "prismjs": "^1.26.0",
     "remark-autolink-headings": "^7.0.1",
     "remark-prism": "^1.3.6",

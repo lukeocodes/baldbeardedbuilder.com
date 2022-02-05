@@ -1,33 +1,34 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Markdown } from 'astro/components';
+import {BlogPostFrontmatter} from 'types:BlogPostFrontmatter';
 
-import { getSanityContent } from 'utils:helpers';
-import allPosts from 'sanityQL:allPosts';
 import PageTopper from 'component:PageTopper';
 import CanonicalNotice from 'component:vue:CanonicalNotice';
 import TableOfContents from 'component:vue:TableOfContents';
 
-
 export async function getStaticPaths({rss}) {
-  const response = await getSanityContent({query: allPosts});
-  const allBlogPosts = response.allPost;
-
+	const allPosts = Astro.fetchContent<BlogPostFrontmatter>('../posts/*.md');
+ 
   rss({
     title: 'Building Better Builders > Bald Bearded Builder',
     description: 'Home of the Bald. Bearded. Builder. community. Working to build better builders.',
     customData: `<language>en-us</language>`,
-    items: allBlogPosts.map(item => ({
+    items: allPosts.map(item => ({
       title: item.title,
-      description: item.excerpt,
-      link: `/blog/${item.slug.current}`,
+      description: item.description,
+      link: `/blog/${item.slug}`,
       pubDate: item.publishedAt,
     })),
   });
-  return allBlogPosts.map(post => ({params: { slug: post.slug.current }, props: {post}}));
+
+  return allPosts.map(post => {
+    return {params: { slug: post.slug }, props: {post}}
+  });
 }
 
 const { post } = Astro.props;
+console.log(post);
 const canonicalUrl = post.canonicalUrl || Astro.request.canonicalURL.href;
 ---
 
