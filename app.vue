@@ -2,7 +2,7 @@
   <div class="wrapper">
     <PageHeader />
     <main>
-      <Nuxt />
+      <NuxtPage />
     </main>
     <PageFooter />
     <BackToTop />

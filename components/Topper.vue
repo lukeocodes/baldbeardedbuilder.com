@@ -18,6 +18,15 @@ section {
     @apply w-5/6;
     @apply bg-contain bg-no-repeat;
     @apply bg-center;
+    background-image: url('/images/intro-light.svg');
+  }
+}
+
+.dark {
+  section {
+    .intro {
+      background-image: url('/images/intro-dark.svg');
+    }
   }
 }
 </style>
