@@ -7,22 +7,29 @@
       <nav>
         <ul>
           <li>
-            <a href="/code-of-conduct" title="Code of Conduct">Code of Conduct</a>
+            <NuxtLink to="/code-of-conduct/" title="Code of Conduct">Code of Conduct</NuxtLink>
           </li>
           <li>
-            <a class="uses" href="/uses" title="My gear & setup">What I'm Using <IconVideoCamera /></a>
+            <NuxtLink class="uses" to="/uses/" title="My gear & setup">
+              What I'm Using
+              <IconVideoCamera />
+            </NuxtLink>
           </li>
           <li>
-            <a
-              class="patreon"
-              href="https://bbb.dev/patreon"
-              title="Support BBB via Patreon">Become a Patron <IconBrandPatreon/></a>
+            <a class="patreon" href="https://bbb.dev/patreon" title="Support BBB via Patreon">
+              Become a Patron
+              <IconBrandPatreon />
+            </a>
           </li>
           <li>
             <a
               class="github"
               href="https://github.com/builders-club/baldbeardedbuilder.com"
-              title="Crafted with love on GitHub">Crafted with <IconHeart/></a>
+              title="Crafted with love on GitHub"
+            >
+              Crafted with
+              <IconHeart />
+            </a>
           </li>
           <li class="socials">
             <ul>
@@ -34,7 +41,8 @@
                   class="twitter"
                   title="Follow the musings on Twitter"
                 >
-                  <IconBrandTwitter/></a>
+                  <IconBrandTwitter />
+                </a>
               </li>
               <li>
                 <a
@@ -44,7 +52,8 @@
                   class="twitch"
                   title="Check out the live streams on Twitch"
                 >
-                  <IconBrandTwitch/></a>
+                  <IconBrandTwitch />
+                </a>
               </li>
               <li>
                 <a
@@ -54,7 +63,8 @@
                   class="youtube"
                   title="Subscribe, like & comment on YouTube videos"
                 >
-                  <IconBrandYouTube/></a>
+                  <IconBrandYouTube />
+                </a>
               </li>
               <li>
                 <a
@@ -64,7 +74,7 @@
                   class="instagram"
                   title="Follow the fun on Instagram"
                 >
-                 <IconBrandInstagram/>
+                  <IconBrandInstagram />
                 </a>
               </li>
               <li>
@@ -75,7 +85,8 @@
                   class="linkedin"
                   title="Get professional on LinkedIn"
                 >
-                 <IconBrandLinkedIn/></a>
+                  <IconBrandLinkedIn />
+                </a>
               </li>
               <li>
                 <a
@@ -85,7 +96,8 @@
                   class="discord"
                   title="Join the Discord community"
                 >
-                  <IconBrandDiscord/></a>
+                  <IconBrandDiscord />
+                </a>
               </li>
             </ul>
           </li>
@@ -130,7 +142,7 @@ footer {
           .svg-icon {
             @apply mx-2;
           }
-          
+
           a {
             @apply flex items-center;
             @apply text-blue-500 dark:text-bbbpink;
@@ -182,6 +194,5 @@ footer {
       }
     }
   }
-
 }
 </style>

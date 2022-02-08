@@ -1,36 +1,30 @@
 <template>
   <ul>
     <li>
-      <a
-        href="/blog"
-        aria-label="Aggregated content Michael has generated"
-        >Blog</a>
+      <NuxtLink to="/blog/" aria-label="Aggregated content Michael has generated">Blog</NuxtLink>
     </li>
     <li>
-      <a
-        href="https://bbb.dev/shop"
-        aria-label="T-shirts, stickers, and other swag"
-        >Swag</a>
+      <a href="https://bbb.dev/shop" aria-label="T-shirts, stickers, and other swag">Swag</a>
     </li>
   </ul>
 </template>
 <style lang="scss" scoped>
-  ul {
-    @apply hidden md:flex;
-    @apply list-none;
-    @apply justify-evenly gap-6 md:gap-10;
+ul {
+  @apply hidden md:flex;
+  @apply list-none;
+  @apply justify-evenly gap-6 md:gap-10;
 
-    li {
-      @apply flex items-center;
-      @apply border-b-2 border-transparent;
+  li {
+    @apply flex items-center;
+    @apply border-b-2 border-transparent;
 
-      @apply font-raleway font-bold;
-      @apply text-darkPurple dark:text-gray-100;
+    @apply font-raleway font-bold;
+    @apply text-darkPurple dark:text-gray-100;
 
-      &:hover {
-        border-image-slice: 1;
-        border-image-source: linear-gradient(to right, #ff00ff, #00ffff);
-      }
+    &:hover {
+      border-image-slice: 1;
+      border-image-source: linear-gradient(to right, #ff00ff, #00ffff);
     }
   }
+}
 </style>

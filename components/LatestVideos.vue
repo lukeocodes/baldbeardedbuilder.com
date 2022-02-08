@@ -1,40 +1,47 @@
 <template>
   <section v-if="data && !pending">
-    <div class="latest-posts">
+    <div class="latest-videos">
       <h2>
         Latest
-        <span>Posts</span>
+        <span>Videos</span>
       </h2>
       <ul>
-        <li v-for="post in data.data.allPost" :key="post.slug.current">
-          <BlogCard :post="post" />
+        <li v-for="video in data.data.allVideo" :key="video.slug.current">
+          <VideoCard :video="video" />
         </li>
       </ul>
-      <NuxtLink class="all" to="/blog/" title="See all posts">See all posts</NuxtLink>
+      <a
+        class="all"
+        href="https://youtube.com/baldbeardedbuilder"
+        title="See all videos"
+      >See all videos</a>
     </div>
   </section>
 </template>
 <script setup>
-const latestPosts = `{
-  allPost(limit: 6, sort: [ { publishedAt: DESC } ]) {
+const latestVideos = `{
+  allVideo(limit: 3, sort: [ { publishedAt: DESC } ]) {
+    title
     slug {
       current
     }
-    title
-    publishedAt
+  	publishedAt
+    url
     coverImage {
-     asset {
-      url
-     }
+      asset {
+        url
+      }
     }
-    excerpt
+    tags {
+      title
+    }
   }
 }`
-const { data, pending } = await useSanity(latestPosts)
+const { data, pending } = await useSanity(latestVideos)
 </script>
 <style lang="scss" scoped>
 section {
-  .latest-posts {
+  .latest-videos {
     @apply flex flex-col justify-center items-center;
     @apply mx-auto;
     @apply py-12 px-8;
@@ -42,7 +49,7 @@ section {
     @apply lg:max-w-4xl xl:max-w-6xl;
     @apply text-base;
 
-    @apply text-darkPurple dark:text-white;
+    @apply text-darkPurple;
 
     h2 {
       @apply flex items-center;
@@ -52,8 +59,8 @@ section {
         @apply flex;
         @apply ml-1;
         @apply py-0 px-2;
-        @apply text-white dark:text-darkPurple;
-        @apply bg-blue-500 dark:bg-bbbblue;
+        @apply text-white;
+        @apply bg-blue-500;
       }
     }
 
@@ -82,15 +89,39 @@ section {
     }
 
     .all {
-      @apply font-bold font-fira uppercase;
-      @apply bg-darkPurple dark:bg-gray-200;
-      @apply text-white dark:text-darkPurple;
+      @apply font-bold uppercase;
+      @apply bg-darkPurple;
+      @apply text-white;
       @apply py-3 px-5;
       @apply mt-12;
       @apply rounded-md;
 
       &:hover {
-        @apply bg-blue-500 dark:bg-bbbpink;
+        @apply bg-blue-500;
+      }
+    }
+  }
+}
+
+body.dark {
+  section {
+    .latest-videos {
+      @apply text-white;
+
+      h2 {
+        span {
+          @apply text-darkPurple;
+          @apply bg-bbbblue;
+        }
+      }
+      .all {
+        @apply font-bold uppercase;
+        @apply bg-gray-200;
+        @apply text-darkPurple;
+
+        &:hover {
+          @apply bg-bbbpink;
+        }
       }
     }
   }

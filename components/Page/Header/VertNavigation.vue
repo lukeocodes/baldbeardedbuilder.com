@@ -1,21 +1,20 @@
 <template>
-    <div id="vertNav" class="stripe" v-bind:class="{open: isOpen}">
-      <a
-        href="/blog"
-        aria-label="Aggregated content Michael has generated"
-        title="Aggregated content Michael has generated"
-        >Blog</a>
-      <a
-        href="https://bbb.dev/shop"
-        aria-label="T-shirts, stickers, and other swag"
-        title="T-shirts, stickers, and other swag"
-        >Swag</a
-      >
-    </div>
+  <div id="vertNav" class="stripe" v-bind:class="{ open: isOpen }">
+    <NuxtLink
+      to="/blog/"
+      aria-label="Aggregated content Michael has generated"
+      title="Aggregated content Michael has generated"
+    >Blog</NuxtLink>
+    <a
+      href="https://bbb.dev/shop"
+      aria-label="T-shirts, stickers, and other swag"
+      title="T-shirts, stickers, and other swag"
+    >Swag</a>
+  </div>
 </template>
 <script lang="ts" setup>
 import useMenu from '@/composables/useMenu';
-const {isOpen, toggleMenu} = useMenu();
+const { isOpen, toggleMenu } = useMenu();
 </script>
 <style lang="scss" scoped>
 #vertNav {
@@ -46,5 +45,4 @@ const {isOpen, toggleMenu} = useMenu();
     }
   }
 }
-
 </style>

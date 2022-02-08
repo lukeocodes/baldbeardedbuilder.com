@@ -1,7 +1,9 @@
 <template>
-  <Topper />
-  <About />
-  <LatestPosts/>
-  <SocialBar />
-  <!-- <LatestVideos :videos="videos" /> -->
+  <div>
+    <Topper />
+    <About />
+    <LatestPosts />
+    <SocialBar />
+    <LatestVideos />
+  </div>
 </template>
