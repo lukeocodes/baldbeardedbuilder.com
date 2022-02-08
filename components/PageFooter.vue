@@ -10,19 +10,19 @@
             <a href="/code-of-conduct" title="Code of Conduct">Code of Conduct</a>
           </li>
           <li>
-            <a class="uses" href="/uses" title="My gear & setup">What I'm Using <VideoCamera /></a>
+            <a class="uses" href="/uses" title="My gear & setup">What I'm Using <IconVideoCamera /></a>
           </li>
           <li>
             <a
               class="patreon"
               href="https://bbb.dev/patreon"
-              title="Support BBB via Patreon">Become a Patron <Patreon/></a>
+              title="Support BBB via Patreon">Become a Patron <IconBrandPatreon/></a>
           </li>
           <li>
             <a
               class="github"
               href="https://github.com/builders-club/baldbeardedbuilder.com"
-              title="Crafted with love on GitHub">Crafted with <Heart/></a>
+              title="Crafted with love on GitHub">Crafted with <IconHeart/></a>
           </li>
           <li class="socials">
             <ul>
@@ -34,7 +34,7 @@
                   class="twitter"
                   title="Follow the musings on Twitter"
                 >
-                  <Twitter/></a>
+                  <IconBrandTwitter/></a>
               </li>
               <li>
                 <a
@@ -44,7 +44,7 @@
                   class="twitch"
                   title="Check out the live streams on Twitch"
                 >
-                  <Twitch/></a>
+                  <IconBrandTwitch/></a>
               </li>
               <li>
                 <a
@@ -54,7 +54,7 @@
                   class="youtube"
                   title="Subscribe, like & comment on YouTube videos"
                 >
-                  <YouTube/></a>
+                  <IconBrandYouTube/></a>
               </li>
               <li>
                 <a
@@ -64,7 +64,7 @@
                   class="instagram"
                   title="Follow the fun on Instagram"
                 >
-                 <Instagram/>
+                 <IconBrandInstagram/>
                 </a>
               </li>
               <li>
@@ -75,7 +75,7 @@
                   class="linkedin"
                   title="Get professional on LinkedIn"
                 >
-                 <LinkedIn/></a>
+                 <IconBrandLinkedIn/></a>
               </li>
               <li>
                 <a
@@ -85,7 +85,7 @@
                   class="discord"
                   title="Join the Discord community"
                 >
-                  <Discord/></a>
+                  <IconBrandDiscord/></a>
               </li>
             </ul>
           </li>

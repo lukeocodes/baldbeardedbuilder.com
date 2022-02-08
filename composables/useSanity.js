@@ -1,24 +1,17 @@
-const client = {
-  projectId: process.env.PUBLIC_SANITY_PROJECT_ID,
-  dataset: process.env.PUBLIC_SANITY_DATASET,
-  token: process.env.PUBLIC_SANITY_READ_TOKEN,
-  useCdn: true,
-};
 
 export default function useSanity(query, variables) {
-  const { data } = await useFetch(
-    `https://${client.projectId}.api.sanity.io/v1/graphql/${client.dataset}/default`,
+  return useFetch(
+    `https://${import.meta.env.VITE_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v1/graphql/${import.meta.env.VITE_PUBLIC_SANITY_DATASET}/default`,
     {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${client.token}`
+        'Authorization': `Bearer ${import.meta.env.VITE_PUBLIC_SANITY_READ_TOKEN}`
       },
-      body: JSON.stringify({
+      body: {
         query,
         variables
-      })
+      }
     }
   )
-  return data;
 }

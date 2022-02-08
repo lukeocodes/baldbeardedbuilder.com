@@ -1,9 +1,9 @@
 <template>
-  <section>
+  <section v-if="data && !pending">
     <div class="latest-posts">
       <h2>Latest <span>Posts</span></h2>
       <ul>
-        <li v-for="post in posts" :key="post.slug">
+        <li v-for="post in data.data.allPost" :key="post.slug">
           <BlogCard :post="post" />
         </li>
       </ul>
@@ -13,44 +13,23 @@
     </div>
   </section>
 </template>
-<script setup>
-const config = useRuntimeConfig();
-const client = {
-  projectId: config.PUBLIC_SANITY_PROJECT_ID,
-  dataset: config.PUBLIC_SANITY_DATASET,
-  token: config.PUBLIC_SANITY_READ_TOKEN,
-  useCdn: true,
-};
-console.log(client)
-const allPosts = `{
-      allPost(limit: 6, sort: [ { publishedAt: DESC } ]) {
-        slug {
-          current
-        }
-        title
-        publishedAt
-        coverImage {
-          asset {
-            url
-          }
-        }
-        excerpt
-      }
-    }`;
-const { data } = await useFetch(
-  `https://${client.projectId}.api.sanity.io/v1/graphql/${client.dataset}/default`,
-  {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${client.token}`
-    },
-    body: JSON.stringify({
-      query: allPosts
-    })
+<script setup> 
+const latestPosts = `{
+  allPost(limit: 6, sort: [ { publishedAt: DESC } ]) {
+    slug {
+      current
+    }
+    title
+    publishedAt
+    coverImage {
+     asset {
+      url
+     }
+    }
+    excerpt
   }
-)
-console.log(data)
+}`
+const {data, pending} = await useSanity(latestPosts)
 </script>
 <style lang="scss" scoped>
 section {
